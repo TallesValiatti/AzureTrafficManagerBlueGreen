@@ -1,12 +1,12 @@
 /* 
 az deployment sub create --name AzureTrafficManagerBlueGreen --location westus2 --template-file main.bicep
 
-az group delete --name rg-app-prod-eastus2 \ 
-&& az group delete --name rg-app-prod-eastus \
-&& az group delete --name rg-app-prod-westus2
+az group delete --name rg-app-prod-eastus2 
+az group delete --name rg-app-prod-eastus 
+az group delete --name rg-app-prod-westus2
  */
 
- // Scope
+// Scope
 targetScope = 'subscription'
 
 // Default Location
@@ -19,7 +19,7 @@ var rgDefaultName = 'rg-${workflowName}-${workflowEnvironment}-<REGION>'
 
 var appServicePlanDefaultName = 'appsp-app-${workflowEnvironment}-<REGION>'
 var appServiceDefaultName = 'apps-backend-${workflowEnvironment}-<REGION>'
-var appServicePlanDefaultSku = 'F1'
+var appServicePlanDefaultSku = 'S1'
 var appServiceDefaultRuntime = 'DOTNETCORE|6.0'
 
 // Variables Resource Group eastus2 (Green)
